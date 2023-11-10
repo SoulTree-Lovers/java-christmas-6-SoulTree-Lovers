@@ -76,14 +76,23 @@
 <br>
 <br>
 
-### ☑️ Model
+## ☑️ Model
+>
+> ### 1. Menu | 메뉴를 관리할 클래스
+> ### 2. Calendar | 달력을 관리할 클래스
+> 
+## ☑️ View
+> ### 1. InputView | 사용자 입력을 관리할 클래스
+> ### 2. OutputView | 사용자 출력을 관리할 클래스
+> 
+## ☑️ Controller
+> ### 1. PlannerManager | 전체 프로세스를 관리할 클래스
+>
 
-### ☑️ View
-
-### ☑️ Controller
-
-### ☑️ Exception
-
-### ☑️ Utility
-
-### ☑️ Test
+## ☑️ Exception
+> ### 1. UserException | 유저 입출력 예외를 관리할 클래스
+> 
+## ☑️ Utility
+> ### 1. Constants | 상수를 관리할 클래스
+> 
+## ☑️ Test
