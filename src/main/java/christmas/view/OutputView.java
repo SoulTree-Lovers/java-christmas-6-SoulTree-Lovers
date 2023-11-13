@@ -3,6 +3,7 @@ package christmas.view;
 import christmas.model.Calendar;
 import christmas.model.Menu;
 import christmas.model.Order;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ public class OutputView {
 
     public void welcomeMessage() {
         System.out.println("12월 " + myCalendar.getVisitDate() + "일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!");
+        System.out.println();
     }
 
     public void orderList() {
@@ -24,6 +26,7 @@ public class OutputView {
         for (Map.Entry<Menu, Integer> entry : orders.entrySet()) {
             System.out.println(entry.getKey().getName() + " " + entry.getValue() + "개");
         }
+        System.out.println();
     }
 
     public void priceBeforeDiscount() {
@@ -35,6 +38,13 @@ public class OutputView {
             Integer menuPrice = menu.getPrice() * quantity;
             totalPrice += menuPrice;
         }
-        System.out.println("할인 전 총 가격: " + totalPrice + "원");
+        System.out.println("<할인 전 총주문 금액>");
+        System.out.println(formatInteger(totalPrice) + "원");
+        System.out.println();
+    }
+
+    private String formatInteger(Integer price) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        return decimalFormat.format(price);
     }
 }
