@@ -1,6 +1,6 @@
 package christmas.model;
 
-public enum MenuList {
+public enum Menu {
     MUSHROOM_SOUP("양송이수프", 6000, "애피타이저"),
     TAPAS("타파스", 5500, "애피타이저"),
     CAESAR_SALAD("시저샐러드", 8000, "애피타이저"),
@@ -18,7 +18,7 @@ public enum MenuList {
     private final Integer price;
     private final String type;
 
-    MenuList(final String name, final Integer price, final String type) {
+    Menu(final String name, final Integer price, final String type) {
         this.name = name;
         this.price = price;
         this.type = type;
