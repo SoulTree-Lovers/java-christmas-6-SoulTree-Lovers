@@ -14,8 +14,12 @@ public class Menu {
         this.order = new ArrayList<>();
     }
 
-    public void setMenu(List<Map<MenuList, Integer>> order) {
+    public void setOrder(List<Map<MenuList, Integer>> order) {
         this.order = order;
+    }
+
+    public List<Map<MenuList, Integer>> getOrder() {
+        return this.order;
     }
 
     public void addOrder(String userInput) {

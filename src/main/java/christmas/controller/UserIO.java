@@ -13,9 +13,9 @@ import java.util.Map;
 public class UserIO {
     Calendar myCalendar;
     Menu myMenu;
-    public UserIO() {
-        myCalendar = new Calendar();
-        myMenu = new Menu();
+    public UserIO(Calendar myCalendar, Menu myMenu) {
+        this.myCalendar = myCalendar;
+        this.myMenu = myMenu;
     }
 
     public void InputVisitDate() {
