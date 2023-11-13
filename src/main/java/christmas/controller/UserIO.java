@@ -2,6 +2,7 @@ package christmas.controller;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Calendar;
+import christmas.model.Event;
 import christmas.model.Order;
 import christmas.view.InputView;
 import christmas.view.OutputView;
@@ -10,10 +11,11 @@ public class UserIO {
     private OutputView outputView;
     private Calendar myCalendar;
     private Order myOrder;
-    public UserIO(Calendar myCalendar, Order myOrder) {
+    private Event myEvent;
+    public UserIO(Calendar myCalendar, Order myOrder, Event myEvent) {
         this.myCalendar = myCalendar;
         this.myOrder = myOrder;
-        this.outputView = new OutputView(myCalendar, myOrder);
+        this.outputView = new OutputView(myCalendar, myOrder, myEvent);
     }
 
     public void inputVisitDate() {
@@ -54,5 +56,25 @@ public class UserIO {
 
     public void outputPriceBeforeDiscount() {
         outputView.priceBeforeDiscount();
+    }
+
+    public void outputGiveChampagne() {
+        outputView.giveChampagne();
+    }
+
+    public void outputDiscountList() {
+        outputView.discount();
+    }
+
+    public void outputTotalDiscountRate() {
+        outputView.totalDiscountRate();
+    }
+
+    public void outputPriceAfterDiscount() {
+        outputView.priceAfterDiscount();
+    }
+
+    public void outputBadge() {
+        outputView.badge();
     }
 }

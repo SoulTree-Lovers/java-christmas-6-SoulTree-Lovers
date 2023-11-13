@@ -21,14 +21,14 @@ public class Event {
         if (!myCalendar.isWeekend()) { totalDiscount += weekdayDiscount(); }
         else if (myCalendar.isWeekend()){ totalDiscount += weekendDiscount(); }
         totalDiscount += specialDiscount();
-        setGiveChampagne();
-        setBadge();
+        if(setGiveChampagne()) {totalDiscount += 25000;}
         this.totalDiscountRate = totalDiscount;
-        myOrder.setPriceAfterDiscount(this.totalDiscountRate);
+        setBadge();
+        myOrder.setPriceAfterDiscount(myOrder.getPriceBeforeDiscount() - this.totalDiscountRate);
     }
 
     public Integer getTotalDiscountRate() {
-        return getTotalDiscountRate();
+        return totalDiscountRate;
     }
 
     public Integer christmasDDayDiscount() {
@@ -45,7 +45,7 @@ public class Event {
         for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
             Menu menu = entry.getKey();
             if (menu.getType().equals("디저트")) {
-                weekdayDiscountTotal += 2023;
+                weekdayDiscountTotal += (2023 * entry.getValue());
             }
         }
         return weekdayDiscountTotal;
@@ -58,7 +58,7 @@ public class Event {
         for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
             Menu menu = entry.getKey();
             if (menu.getType().equals("메인")) {
-                weekendDiscountTotal += 2023;
+                weekendDiscountTotal += (2023 * entry.getValue());
             }
         }
         return weekendDiscountTotal;
@@ -71,17 +71,24 @@ public class Event {
         return 0;
     }
 
-    public void setGiveChampagne() {
+    public boolean setGiveChampagne() {
         giveChampagne = false;
         if (myOrder.getPriceBeforeDiscount() >= 120000) {
             giveChampagne = true;
+            return true;
         }
+        return false;
+    }
+
+    public boolean getGiveChampagne() {
+        return this.giveChampagne;
     }
 
     public void setBadge() {
-        if (totalDiscountRate >= 20000) { this.badge = "산타"; }
-        else if (totalDiscountRate >= 10000) { this.badge = "트리"; }
-        else if (totalDiscountRate >= 5000) { this.badge = "별"; }
+        if (this.totalDiscountRate == null) {this.totalDiscountRate = 0;}
+        if (this.totalDiscountRate >= 20000) { this.badge = "산타"; }
+        else if (this.totalDiscountRate >= 10000) { this.badge = "트리"; }
+        else if (this.totalDiscountRate >= 5000) { this.badge = "별"; }
     }
 
     public String getBadge() {
