@@ -87,6 +87,7 @@
 > 
 ## ☑️ Controller
 > ### 1. PlannerManager | 전체 프로세스를 관리할 클래스
+> ### 2. UserIO | 유저의 입출력을 관리할 클래스
 >
 
 ## ☑️ Exception
