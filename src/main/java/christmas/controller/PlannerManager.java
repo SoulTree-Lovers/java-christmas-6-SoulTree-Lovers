@@ -13,7 +13,8 @@ public class PlannerManager {
     public void play() {
         // TODO: 프로그램 프로세스 로직 구현
         UserIO userIO = new UserIO(myCalendar, myOrder);
-        userIO.InputVisitDate();
-        userIO.InputMenu();
+        userIO.inputVisitDate();
+        userIO.inputOrder();
+        userIO.outputOrder();
     }
 }
