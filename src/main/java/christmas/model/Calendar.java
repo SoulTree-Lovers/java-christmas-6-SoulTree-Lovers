@@ -1,11 +1,11 @@
 package christmas.model;
 
 public class Calendar {
-    private static Integer visitDate;
+    private Integer visitDate;
 
     public Calendar() {}
 
-    public static void setVisitDate(Integer visitDate) {
-        Calendar.visitDate = visitDate;
+    public void setVisitDate(Integer visitDate) {
+        this.visitDate = visitDate;
     }
 }
