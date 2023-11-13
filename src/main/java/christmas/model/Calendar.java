@@ -8,4 +8,8 @@ public class Calendar {
     public void setVisitDate(Integer visitDate) {
         this.visitDate = visitDate;
     }
+
+    public Integer getVisitDate() {
+        return visitDate;
+    }
 }

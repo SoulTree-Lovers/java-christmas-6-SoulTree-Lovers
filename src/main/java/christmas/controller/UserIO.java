@@ -43,6 +43,9 @@ public class UserIO {
         }
     }
 
+    public void outputWelcomeMessage() {
+        outputView.welcomeMessage();
+    }
     public void outputOrder() {
         outputView.orderList();
     }
