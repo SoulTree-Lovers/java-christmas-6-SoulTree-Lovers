@@ -44,6 +44,10 @@ public class UserIO {
     }
 
     public void outputOrder() {
+        outputView.orderList();
+    }
+
+    public void outputPriceBeforeDiscount() {
         outputView.priceBeforeDiscount();
     }
 }

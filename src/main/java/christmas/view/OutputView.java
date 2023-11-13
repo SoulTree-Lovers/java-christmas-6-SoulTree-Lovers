@@ -14,7 +14,7 @@ public class OutputView {
         this.myOrder = myOrder;
     }
 
-    public void priceBeforeDiscount() {
+    public void orderList() {
         System.out.println("<주문 메뉴>");
         Map<Menu, Integer> orders = myOrder.getOrder();
         for (Map.Entry<Menu, Integer> entry : orders.entrySet()) {
@@ -22,4 +22,15 @@ public class OutputView {
         }
     }
 
+    public void priceBeforeDiscount() {
+        Map<Menu, Integer> orders = myOrder.getOrder();
+        Integer totalPrice = 0;
+        for (Map.Entry<Menu, Integer> entry : orders.entrySet()) {
+            Menu menu = entry.getKey();
+            Integer quantity = entry.getValue();
+            Integer menuPrice = menu.getPrice() * quantity;
+            totalPrice += menuPrice;
+        }
+        System.out.println("할인 전 총 가격: " + totalPrice + "원");
+    }
 }

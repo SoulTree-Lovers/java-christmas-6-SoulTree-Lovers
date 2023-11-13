@@ -16,5 +16,6 @@ public class PlannerManager {
         userIO.inputVisitDate();
         userIO.inputOrder();
         userIO.outputOrder();
+        userIO.outputPriceBeforeDiscount();
     }
 }
