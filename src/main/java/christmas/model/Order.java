@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Menu {
+public class Order {
     private List<Map<MenuList, Integer>> order;
-    public Menu() {
+    public Order() {
         this.order = new ArrayList<>();
     }
 

@@ -1,21 +1,16 @@
 package christmas.controller;
 
-import static christmas.utility.Constants.COMMA;
-
 import camp.nextstep.edu.missionutils.Console;
 import christmas.model.Calendar;
-import christmas.model.Menu;
-import christmas.model.MenuList;
+import christmas.model.Order;
 import christmas.view.InputView;
-import java.util.HashMap;
-import java.util.Map;
 
 public class UserIO {
     Calendar myCalendar;
-    Menu myMenu;
-    public UserIO(Calendar myCalendar, Menu myMenu) {
+    Order myOrder;
+    public UserIO(Calendar myCalendar, Order myOrder) {
         this.myCalendar = myCalendar;
-        this.myMenu = myMenu;
+        this.myOrder = myOrder;
     }
 
     public void InputVisitDate() {
@@ -36,7 +31,7 @@ public class UserIO {
         while (true) {
             try {
                 String userInput = Console.readLine();
-                myMenu.addOrder(userInput);
+                myOrder.addOrder(userInput);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
