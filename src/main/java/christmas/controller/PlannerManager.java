@@ -17,6 +17,7 @@ public class PlannerManager {
         UserIO userIO = new UserIO(myCalendar, myOrder);
         userIO.inputVisitDate();
         userIO.inputOrder();
+
         userIO.outputWelcomeMessage();
         userIO.outputOrder();
         userIO.outputPriceBeforeDiscount();

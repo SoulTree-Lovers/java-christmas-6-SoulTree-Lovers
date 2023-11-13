@@ -8,7 +8,8 @@ import java.util.Map;
 
 public class Order {
     private Map<Menu, Integer> order;
-
+    private Integer priceBeforeDiscount;
+    private Integer priceAfterDiscount;
     public Order() {
         this.order = new HashMap<>();
     }
@@ -19,6 +20,25 @@ public class Order {
 
     public Map<Menu, Integer> getOrder() {
         return this.order;
+    }
+
+    public Integer getPriceBeforeDiscount() {
+        return this.priceBeforeDiscount;
+    }
+
+    public Integer getPriceAfterDiscount() {
+        return this.priceAfterDiscount;
+    }
+
+    public void calculatePriceBeforeDiscount() {
+        Integer totalPrice = 0;
+        for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
+            Menu menu = entry.getKey();
+            Integer quantity = entry.getValue();
+            Integer menuPrice = menu.getPrice() * quantity;
+            totalPrice += menuPrice;
+        }
+        this.priceBeforeDiscount = totalPrice;
     }
 
     public void addOrder(String userInput) {

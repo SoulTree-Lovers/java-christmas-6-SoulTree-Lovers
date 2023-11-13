@@ -30,16 +30,8 @@ public class OutputView {
     }
 
     public void priceBeforeDiscount() {
-        Map<Menu, Integer> orders = myOrder.getOrder();
-        Integer totalPrice = 0;
-        for (Map.Entry<Menu, Integer> entry : orders.entrySet()) {
-            Menu menu = entry.getKey();
-            Integer quantity = entry.getValue();
-            Integer menuPrice = menu.getPrice() * quantity;
-            totalPrice += menuPrice;
-        }
         System.out.println("<할인 전 총주문 금액>");
-        System.out.println(formatInteger(totalPrice) + "원");
+        System.out.println(formatInteger(myOrder.getPriceBeforeDiscount()) + "원");
         System.out.println();
     }
 

@@ -41,11 +41,13 @@ public class UserIO {
                 System.out.println(e.getMessage());
             }
         }
+        myOrder.calculatePriceBeforeDiscount();
     }
 
     public void outputWelcomeMessage() {
         outputView.welcomeMessage();
     }
+
     public void outputOrder() {
         outputView.orderList();
     }
