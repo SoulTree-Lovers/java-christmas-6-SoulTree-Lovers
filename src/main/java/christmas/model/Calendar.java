@@ -10,6 +10,7 @@ public class Calendar {
 
     public Calendar() {
         this.starDays = new ArrayList<>();
+        setStarDays();
     }
 
     public void setVisitDate(Integer visitDate) {
@@ -17,7 +18,7 @@ public class Calendar {
     }
 
     public Integer getVisitDate() {
-        return visitDate;
+        return this.visitDate;
     }
 
     public void setStarDay(List<Integer> starDay) {
@@ -25,7 +26,19 @@ public class Calendar {
     }
 
     public boolean existStar() {
-        if (starDays.contains(visitDate)) { return true; }
+        if (starDays.contains(this.visitDate)) { return true; }
         return false;
+    }
+
+    public boolean isWeekend() {
+        List<Integer> weekend = List.of(1, 2, 8, 9, 15, 16, 22, 23, 29, 30);
+        if (weekend.contains(this.visitDate)) {
+            return true;
+        }
+        return false;
+    }
+
+    private void setStarDays() {
+        this.starDays = List.of(3, 10, 17, 24, 25, 31);
     }
 }

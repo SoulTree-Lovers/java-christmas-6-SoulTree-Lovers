@@ -13,7 +13,6 @@ public class PlannerManager {
         this.myOrder = myOrder;
     }
     public void play() {
-        // TODO: 프로그램 프로세스 로직 구현
         UserIO userIO = new UserIO(myCalendar, myOrder);
         userIO.inputVisitDate();
         userIO.inputOrder();
@@ -23,8 +22,4 @@ public class PlannerManager {
         userIO.outputPriceBeforeDiscount();
     }
 
-    private void setStarDays() {
-        List<Integer> starDays = List.of(3, 10, 17, 24, 25, 31);
-        myCalendar.setStarDay(starDays);
-    }
 }

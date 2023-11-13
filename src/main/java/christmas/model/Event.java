@@ -5,11 +5,30 @@ import java.util.Map;
 public class Event {
     private boolean giveChampagne;
     private String badge;
+    private Integer totalDiscountRate;
     private Calendar myCalendar;
     private Order myOrder;
     public Event(Calendar myCalendar, Order myOrder) {
         this.myCalendar = myCalendar;
         this.myOrder = myOrder;
+        this.badge = "없음";
+    }
+
+    public void calculateAllDiscount() {
+        if (myOrder.getPriceBeforeDiscount() < 10000) {return;}
+        Integer totalDiscount = 0;
+        totalDiscount += christmasDDayDiscount();
+        if (!myCalendar.isWeekend()) { totalDiscount += weekdayDiscount(); }
+        else if (myCalendar.isWeekend()){ totalDiscount += weekendDiscount(); }
+        totalDiscount += specialDiscount();
+        setGiveChampagne();
+        setBadge();
+        this.totalDiscountRate = totalDiscount;
+        myOrder.setPriceAfterDiscount(this.totalDiscountRate);
+    }
+
+    public Integer getTotalDiscountRate() {
+        return getTotalDiscountRate();
     }
 
     public Integer christmasDDayDiscount() {
@@ -57,5 +76,15 @@ public class Event {
         if (myOrder.getPriceBeforeDiscount() >= 120000) {
             giveChampagne = true;
         }
+    }
+
+    public void setBadge() {
+        if (totalDiscountRate >= 20000) { this.badge = "산타"; }
+        else if (totalDiscountRate >= 10000) { this.badge = "트리"; }
+        else if (totalDiscountRate >= 5000) { this.badge = "별"; }
+    }
+
+    public String getBadge() {
+        return this.badge;
     }
 }

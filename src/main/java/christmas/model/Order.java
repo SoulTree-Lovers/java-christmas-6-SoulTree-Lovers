@@ -30,6 +30,10 @@ public class Order {
         return this.priceAfterDiscount;
     }
 
+    public void setPriceAfterDiscount(Integer priceAfterDiscount) {
+        this.priceAfterDiscount = priceAfterDiscount;
+    }
+
     public void calculatePriceBeforeDiscount() {
         Integer totalPrice = 0;
         for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
