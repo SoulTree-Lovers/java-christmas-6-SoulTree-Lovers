@@ -55,11 +55,12 @@ public class OutputView {
         System.out.println("<혜택 내역>");
         if (myEvent.getTotalDiscountRate() == 0) {
             System.out.println("없음");
+            System.out.println();
             return;
         }
         if (myEvent.christmasDDayDiscount() > 0) { System.out.println("크리스마스 디데이 할인: " + LINE + formatInteger(myEvent.christmasDDayDiscount()) + "원"); }
-        if (!myCalendar.isWeekend()) { System.out.println("평일 할인: " + LINE + formatInteger(myEvent.weekdayDiscount()) + "원"); }
-        if (myCalendar.isWeekend()) { System.out.println("주말 할인: " + LINE + formatInteger(myEvent.weekendDiscount()) + "원"); }
+        if (!myCalendar.isWeekend() && myEvent.weekdayDiscount() > 0) { System.out.println("평일 할인: " + LINE + formatInteger(myEvent.weekdayDiscount()) + "원"); }
+        if (myCalendar.isWeekend() && myEvent.weekendDiscount() > 0) { System.out.println("주말 할인: " + LINE + formatInteger(myEvent.weekendDiscount()) + "원"); }
         if (myEvent.specialDiscount() > 0) { System.out.println("특별 할인: " + LINE + formatInteger(myEvent.specialDiscount() )+ "원"); }
         if (myEvent.getGiveChampagne()) { System.out.println("증정 이벤트: -25,000원"); }
         System.out.println();
@@ -67,13 +68,23 @@ public class OutputView {
 
     public void totalDiscountRate() {
         System.out.println("<총혜택 금액>");
-        System.out.println(LINE + formatInteger(myEvent.getTotalDiscountRate()) + "원");
+        if (myEvent.getTotalDiscountRate() > 0) {
+            System.out.println(LINE + formatInteger(myEvent.getTotalDiscountRate()) + "원");
+            System.out.println();
+            return;
+        }
+        System.out.println(formatInteger(myEvent.getTotalDiscountRate()) + "원");
         System.out.println();
     }
 
     public void priceAfterDiscount() {
-        System.out.println("<할인 후 예상 결제금액>");
-        System.out.println(formatInteger(myOrder.getPriceAfterDiscount() + 25000) + "원");
+        System.out.println("<할인 후 예상 결제 금액>");
+        if (myEvent.getGiveChampagne()) {
+            System.out.println(formatInteger(myOrder.getPriceAfterDiscount() + 25000) + "원");
+        }
+        if (!myEvent.getGiveChampagne()) {
+            System.out.println(formatInteger(myOrder.getPriceAfterDiscount()) + "원");
+        }
         System.out.println();
     }
 

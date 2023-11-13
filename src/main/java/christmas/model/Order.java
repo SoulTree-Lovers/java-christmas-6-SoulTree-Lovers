@@ -12,6 +12,8 @@ public class Order {
     private Integer priceAfterDiscount;
     public Order() {
         this.order = new HashMap<>();
+        priceBeforeDiscount = 0;
+        priceAfterDiscount = 0;
     }
 
     public void setOrder(Map<Menu, Integer> order) {

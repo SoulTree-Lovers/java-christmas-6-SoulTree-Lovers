@@ -10,16 +10,19 @@ public class PlannerManager {
     private Calendar myCalendar;
     private Order myOrder;
     private Event myEvent;
+
     public PlannerManager(Calendar myCalendar, Order myOrder, Event myEvent) {
         this.myCalendar = myCalendar;
         this.myOrder = myOrder;
         this.myEvent = myEvent;
     }
+
     public void play() {
         UserIO userIO = new UserIO(myCalendar, myOrder, myEvent);
         userIO.inputVisitDate();
         userIO.inputOrder();
         myEvent.calculateAllDiscount();
+
         userIO.outputWelcomeMessage();
         userIO.outputOrder();
         userIO.outputPriceBeforeDiscount();

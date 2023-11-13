@@ -12,10 +12,14 @@ public class Event {
         this.myCalendar = myCalendar;
         this.myOrder = myOrder;
         this.badge = "없음";
+        this.totalDiscountRate = 0;
     }
 
     public void calculateAllDiscount() {
-        if (myOrder.getPriceBeforeDiscount() < 10000) {return;}
+        if (myOrder.getPriceBeforeDiscount() < 10000) {
+            myOrder.setPriceAfterDiscount(myOrder.getPriceBeforeDiscount());
+            return;
+        }
         Integer totalDiscount = 0;
         totalDiscount += christmasDDayDiscount();
         if (!myCalendar.isWeekend()) { totalDiscount += weekdayDiscount(); }
@@ -28,7 +32,7 @@ public class Event {
     }
 
     public Integer getTotalDiscountRate() {
-        return totalDiscountRate;
+        return this.totalDiscountRate;
     }
 
     public Integer christmasDDayDiscount() {
