@@ -1,2 +1,4 @@
-package christmas.model;public class Event {
+package christmas.model;
+
+public class Event {
 }
