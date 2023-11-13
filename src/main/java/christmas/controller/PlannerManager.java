@@ -2,6 +2,8 @@ package christmas.controller;
 
 import christmas.model.Calendar;
 import christmas.model.Order;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlannerManager {
     private Calendar myCalendar;
@@ -18,5 +20,10 @@ public class PlannerManager {
         userIO.outputWelcomeMessage();
         userIO.outputOrder();
         userIO.outputPriceBeforeDiscount();
+    }
+
+    private void setStarDays() {
+        List<Integer> starDays = List.of(3, 10, 17, 24, 25, 31);
+        myCalendar.setStarDay(starDays);
     }
 }
