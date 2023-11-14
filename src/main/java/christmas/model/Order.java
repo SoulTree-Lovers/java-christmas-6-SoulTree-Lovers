@@ -1,7 +1,10 @@
 package christmas.model;
 
 import static christmas.utility.Constants.COMMA;
+import static christmas.utility.Constants.FIRST_ITEM;
+import static christmas.utility.Constants.INITIAL_PRICE;
 import static christmas.utility.Constants.LINE;
+import static christmas.utility.Constants.SECOND_ITEM;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,8 +15,8 @@ public class Order {
     private Integer priceAfterDiscount;
     public Order() {
         this.order = new HashMap<>();
-        priceBeforeDiscount = 0;
-        priceAfterDiscount = 0;
+        priceBeforeDiscount = INITIAL_PRICE;
+        priceAfterDiscount = INITIAL_PRICE;
     }
 
     public void setOrder(Map<Menu, Integer> order) {
@@ -37,7 +40,7 @@ public class Order {
     }
 
     public void calculatePriceBeforeDiscount() {
-        Integer totalPrice = 0;
+        Integer totalPrice = INITIAL_PRICE;
         for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
             Menu menu = entry.getKey();
             Integer quantity = entry.getValue();
@@ -51,8 +54,8 @@ public class Order {
         String[] menus = userInput.split(COMMA);
         for (String menu : menus) {
             String[] currMenu = menu.trim().split(LINE);
-            String menuName = currMenu[0].trim();
-            Integer quantity = Integer.parseInt(currMenu[1].trim());
+            String menuName = currMenu[FIRST_ITEM].trim();
+            Integer quantity = Integer.parseInt(currMenu[SECOND_ITEM].trim());
             addMenu(menuName, quantity);
         }
     }

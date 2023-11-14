@@ -3,8 +3,6 @@ package christmas.controller;
 import christmas.model.Calendar;
 import christmas.model.Event;
 import christmas.model.Order;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlannerManager {
     private Calendar myCalendar;
@@ -32,5 +30,4 @@ public class PlannerManager {
         userIO.outputPriceAfterDiscount();
         userIO.outputBadge();
     }
-
 }
