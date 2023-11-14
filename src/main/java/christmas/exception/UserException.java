@@ -99,7 +99,8 @@ public class UserException {
         String[] menuItems = userInput.split(COMMA);
         Set<String> uniqueMenus = new HashSet<>();
         for (String menuItem : menuItems) {
-            if (!uniqueMenus.add(menuItem.trim())) {
+            String[] parts = menuItem.split(LINE);
+            if (!uniqueMenus.add(parts[FIRST_ITEM].trim())) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_ORDER);
             }
         }
