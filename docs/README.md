@@ -93,7 +93,8 @@
 >
 
 ## ☑️ Exception
-> ### 1. UserException | 유저 입출력 예외를 관리할 클래스
+> ### 1. DateException | 날짜에 관한 예외를 처리할 클래스
+> ### 2. OrderException | 주문에 관한 예외를 처리할 클래스 
 > 
 ## ☑️ Utility
 > ### 1. Constants | 상수를 관리할 클래스
