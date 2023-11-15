@@ -1,7 +1,8 @@
 package christmas.controller;
 
 import camp.nextstep.edu.missionutils.Console;
-import christmas.exception.UserException;
+import christmas.exception.DateException;
+import christmas.exception.OrderException;
 import christmas.model.Calendar;
 import christmas.model.Event;
 import christmas.model.Order;
@@ -12,7 +13,6 @@ public class UserIO {
     private OutputView outputView;
     private Calendar myCalendar;
     private Order myOrder;
-    private Event myEvent;
     public UserIO(Calendar myCalendar, Order myOrder, Event myEvent) {
         this.myCalendar = myCalendar;
         this.myOrder = myOrder;
@@ -24,7 +24,7 @@ public class UserIO {
         while (true) {
             try {
                 String userInput = Console.readLine();
-                UserException.validateDateAll(userInput);
+                DateException.validateAll(userInput);
                 Integer visitDate = Integer.parseInt(userInput);
                 myCalendar.setVisitDate(visitDate);
                 break;
@@ -39,7 +39,7 @@ public class UserIO {
         while (true) {
             try {
                 String userInput = Console.readLine();
-                UserException.validateOrderAll(userInput);
+                OrderException.validateAll(userInput);
                 myOrder.addOrder(userInput);
                 break;
             } catch (IllegalArgumentException e) {
