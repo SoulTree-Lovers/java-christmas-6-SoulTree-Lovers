@@ -13,6 +13,8 @@ public class Constants {
     public static final Integer MIN_DATE = 1;
     public static final Integer MAX_DATE = 31;
 
+    public static final Integer MIN_MENU_COUNT = 1;
+
     // Calendar class
     public static final Integer MENU_FORMAT_LENGTH = 2; // 메뉴이름-수량
 
@@ -66,7 +68,7 @@ public class Constants {
     public static final String NUMBER_COUNT = "개";
     public static final String WON = "원";
 
-    // UserException class 에러 메시지
+    // Exception class 에러 메시지
     public static final String ERROR_MESSAGE_DATE = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
     public static final String ERROR_MESSAGE_ORDER = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
 }

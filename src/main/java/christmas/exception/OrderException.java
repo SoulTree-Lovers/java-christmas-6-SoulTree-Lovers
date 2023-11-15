@@ -6,6 +6,7 @@ import static christmas.utility.Constants.FIRST_ITEM;
 import static christmas.utility.Constants.LINE;
 import static christmas.utility.Constants.MENU_FORMAT_LENGTH;
 import static christmas.utility.Constants.MIN_DATE;
+import static christmas.utility.Constants.MIN_MENU_COUNT;
 import static christmas.utility.Constants.SECOND_ITEM;
 
 import christmas.model.Menu;
@@ -47,7 +48,7 @@ public class OrderException {
         for (String menuItem : menuItems) {
             String[] parts = menuItem.split(LINE);
             int count = Integer.parseInt(parts[SECOND_ITEM].trim());
-            if (count < MIN_DATE) {
+            if (count < MIN_MENU_COUNT) {
                 throw new IllegalArgumentException(ERROR_MESSAGE_ORDER);
             }
         }
